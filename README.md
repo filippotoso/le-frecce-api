@@ -24,6 +24,9 @@ use FilippoToso\LeFrecceAPI\Client as LeFrecce;
 // Create the client
 $client = new LeFrecce();
 
+// Autocomplete a station name
+$locations = $client->locations('Milano');
+print_r($locations);
 ```
 
 ## Thanks  
