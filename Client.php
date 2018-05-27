@@ -215,7 +215,7 @@ class Client
      * @return array
      */
     public function solutionDetails($solutionId) {
-        $url = $this->getUrl(sprintf('solutions/%s/details', urlencode($solitionId)));
+        $url = $this->getUrl(sprintf('solutions/%s/details', urlencode($solutionId)));
         return $this->getJSON($url);
     }
 
@@ -226,7 +226,7 @@ class Client
      * @return array
      */
     public function solutionInfo($solutionId) {
-        $url = $this->getUrl(sprintf('solutions/%s/info', urlencode($solitionId)));
+        $url = $this->getUrl(sprintf('solutions/%s/info', urlencode($solutionId)));
         return $this->getJSON($url);
     }
 
@@ -237,7 +237,7 @@ class Client
      * @return array
      */
     public function solutionStandardOffers($solutionId) {
-        $url = $this->getUrl(sprintf('solutions/%s/standardoffers', urlencode($solitionId)));
+        $url = $this->getUrl(sprintf('solutions/%s/standardoffers', urlencode($solutionId)));
         return $this->getJSON($url);
     }
 
@@ -248,7 +248,7 @@ class Client
      * @return array
      */
     public function solutionCustomizedOffers($solutionId) {
-        $url = $this->getUrl(sprintf('solutions/%s/customizedoffers', urlencode($solitionId)));
+        $url = $this->getUrl(sprintf('solutions/%s/customizedoffers', urlencode($solutionId)));
         return $this->getJSON($url);
     }
 
