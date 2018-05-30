@@ -16,8 +16,19 @@ class Client
      */
     protected $cookieJar;
 
+    /**
+     * Define the language of the interface
+     * @var string
+     */
+    protected $lang = 'en-US';
+
     protected function newClient() {
-        return  new HTTPClient(['cookies' => true]);
+        return  new HTTPClient([
+            'cookies' => true,
+            'headers' => [
+                'Accept-Language' => $this->lang,
+            ],
+        ]);
     }
 
     /**
@@ -147,7 +158,8 @@ class Client
      * @method __construct
      * @param  CookieJarInterface|null    $cookieJar The cookie jar used to keep track of the session
      */
-    public function __construct($cookieJar = null) {
+    public function __construct($language = 'en-US', $cookieJar = null) {
+        $this->language = $language;
         $this->cookieJar = is_null($cookieJar) ? new CookieJar : $cookieJar;
     }
 
@@ -349,6 +361,17 @@ class Client
 
     }
 
-
+    /**
+     * Get / Set the current language
+     * @method language
+     * @param  null|string   $language If null, returns the current language, otherwise set the language
+     * @return string
+     */
+    public function language($lang = null) {
+        if (!is_null($lang)) {
+            $this->lang = $lang;
+        }
+        return $this->lang;
+    }
 
 }
