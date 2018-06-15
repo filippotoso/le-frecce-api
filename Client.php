@@ -17,12 +17,6 @@ class Client
     protected $cookieJar;
 
     /**
-     * Change the urls if the user is logged in
-     * @var boolean
-     */
-    public $loggedIn = false;
-
-    /**
      * Define the language of the interface
      * @var string
      */
@@ -56,7 +50,6 @@ class Client
             ]);
         }
         catch (BadResponseException $e) {
-            dd( $e);
             return FALSE;
         }
 
