@@ -40,18 +40,13 @@ class Client
 
         $client = $this->newClient();
 
-        try {
-            $res = $client->request('GET', $url, [
-                'headers' => [
-                    'Accept'     => 'application/json',
-                    'User-Agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0',
-                ],
-                'cookies' => $this->cookieJar,
-            ]);
-        }
-        catch (BadResponseException $e) {
-            return FALSE;
-        }
+        $res = $client->request('GET', $url, [
+            'headers' => [
+                'Accept'     => 'application/json',
+                'User-Agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0',
+            ],
+            'cookies' => $this->cookieJar,
+        ]);
 
         $data = json_decode($res->getBody(), TRUE);
 
@@ -68,17 +63,12 @@ class Client
 
         $client = $this->newClient();
 
-        try {
-            $res = $client->request('GET', $url, [
-                'headers' => [
-                    'User-Agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0',
-                ],
-                'cookies' => $this->cookieJar,
-            ]);
-        }
-        catch (BadResponseException $e) {
-            return FALSE;
-        }
+        $res = $client->request('GET', $url, [
+            'headers' => [
+                'User-Agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0',
+            ],
+            'cookies' => $this->cookieJar,
+        ]);
 
         return (string) $res->getBody();
 
@@ -95,19 +85,14 @@ class Client
 
         $client = $this->newClient();
 
-        try {
-            $res = $client->request('POST', $url, [
-                'json' => $data,
-                'headers' => [
-                    'Accept'     => 'application/json',
-                    'User-Agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0',
-                ],
-                'cookies' => $this->cookieJar,
-            ]);
-        }
-        catch (BadResponseException $e) {
-            return FALSE;
-        }
+        $res = $client->request('POST', $url, [
+            'json' => $data,
+            'headers' => [
+                'Accept'     => 'application/json',
+                'User-Agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0',
+            ],
+            'cookies' => $this->cookieJar,
+        ]);
 
         $data = json_decode($res->getBody(), TRUE);
 
@@ -125,18 +110,13 @@ class Client
 
         $client = $this->newClient();
 
-        try {
-            $res = $client->request('POST', $url, [
-                'form_params' => $data,
-                'headers' => [
-                    'User-Agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0',
-                ],
-                'cookies' => $this->cookieJar,
-            ]);
-        }
-        catch (BadResponseException $e) {
-            return FALSE;
-        }
+        $res = $client->request('POST', $url, [
+            'form_params' => $data,
+            'headers' => [
+                'User-Agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0',
+            ],
+            'cookies' => $this->cookieJar,
+        ]);
 
         return (string) $res->getBody();
 
@@ -152,19 +132,14 @@ class Client
 
         $client = $this->newClient();
 
-        try {
-            $res = $client->request($method, $url, [
-                'json' => $data,
-                'headers' => [
-                    'Accept'     => 'application/json',
-                    'User-Agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0',
-                ],
-                'cookies' => $this->cookieJar,
-            ]);
-        }
-        catch (BadResponseException $e) {
-            return FALSE;
-        }
+        $res = $client->request($method, $url, [
+            'json' => $data,
+            'headers' => [
+                'Accept'     => 'application/json',
+                'User-Agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0',
+            ],
+            'cookies' => $this->cookieJar,
+        ]);
 
         $data = json_decode($res->getBody(), TRUE);
 
